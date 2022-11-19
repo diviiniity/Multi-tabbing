@@ -16,6 +16,8 @@ const tabs = await chrome.tabs.query({
   "currentWindow": true
 });
 
+const selected = []
+
 // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/Collator
 const collator = new Intl.Collator();
 tabs.sort((a, b) => collator.compare(a.title, b.title));
@@ -32,8 +34,19 @@ for (const tab of tabs) {
   element.querySelector(".pathname").textContent = pathname;
   element.querySelector("a").addEventListener("click", async () => {
     // need to focus window as well as the active tab
-    await chrome.tabs.update(tab.id, { active: true });
-    await chrome.windows.update(tab.windowId, { focused: true });
+    if (selected.includes(tab.id)) {
+      const index = selected.indexOf(tab.id);
+      if (index > -1){
+        selected.splice(index,1);
+      }
+    }
+    else {
+      selected.push(tab.id);
+    }
+
+    document.getElementById("selected").innerHTML = selected;
+    //await chrome.tabs.update(tab.id, { active: true });
+    //await chrome.windows.update(tab.windowId, { focused: true });
   });
 
   elements.add(element);
