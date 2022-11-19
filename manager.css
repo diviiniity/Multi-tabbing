@@ -33,8 +33,32 @@ body {
   li:nth-child(even) {
     background: #ffffff;
   }
-  li.grouped {
-    background: #ADD8E6;
+  li.grey {
+    background: lightgray;
+  }
+  li.blue {
+    background: lightblue;
+  }
+  li.red {
+    background: lightcoral;
+  }
+  li.yellow {
+    background: lightyellow;
+  }
+  li.green {
+    background: lightgreen;
+  }
+  li.pink {
+    background: lightpink;
+  }
+  li.purple {
+    background: #e5c9fb;
+  }
+  li.cyan {
+    background: cyan;
+  }
+  li.orange {
+    background: orange;
   }
   li.selected {
     background: #C1E1C1;

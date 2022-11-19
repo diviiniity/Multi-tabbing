@@ -1,6 +1,6 @@
 const tabs = await chrome.tabs.query({});
 const selected = [];
-const groups = [];
+const groups = await chrome.tabGroups.query({});
 
 tabs.sort((a,b) => a.index-b.index);
 
@@ -14,7 +14,8 @@ for (const tab of tabs) {
     element.querySelector(".title").textContent = title;
     element.querySelector(".url").textContent = pathname;
     if (tab.groupId > -1) {
-        element.classList.add("grouped")
+        const groupColor = await chrome.tabGroups.get(tab.groupId);
+        element.classList.add(groupColor.color);
     }
 
     //selecting pages
@@ -73,36 +74,30 @@ for (const tab of tabs) {
         window.location.reload();
     })
 
-    elements.push(element);
-
     /////// create group
-    const button = document.querySelector(".group");
-    button.addEventListener("click", async () => {
+    const groupB = document.querySelector(".group");
+    groupB.addEventListener("click", async () => {
     const tabIds = selected.map(({ id }) => id);
+    console.log(tabIds);
     const group = await chrome.tabs.group({ tabIds });
 
-    for (const tab of tabs) {
-     const index = selected.indexOf(tab);
-     selected[index].classList.add('grouped');
-  }
+    window.location.reload();
+    });
 
+    /////// delete group
+    const ungroupB = document.querySelector(".ungroup");
+    ungroupB.addEventListener("click", async () => {
+        const tabIds = selected.map(({ id }) => id);
+        console.log(tabIds);
+        const group = await chrome.tabs.ungroup(tabIds);
+
+    window.location.reload();
+    });
   
-});
+elements.push(element);
 }
 
 reloadList(document.querySelector("ul"));
-
-const button = document.querySelector(".group");
-button.addEventListener("click", async () => {
-  const tabIds = selected.map(({ id }) => id);
-  const group = await chrome.tabs.group({ tabIds });
-
-  /*for (const tab of selected) {
-    const index = selected.indexOf(tab);
-    selected[index].classList.add('grouped');
-  }*/
-  
-});
 
 function reloadList(element) {
     while (element.firstChild) {
