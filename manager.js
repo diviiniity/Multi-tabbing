@@ -16,6 +16,7 @@ for (const tab of tabs) {
     if (tab.groupId > -1) {
         const groupColor = await chrome.tabGroups.get(tab.groupId);
         element.classList.add(groupColor.color);
+        element.classList.add("grouped")
     }
 
     //selecting pages
@@ -77,7 +78,6 @@ for (const tab of tabs) {
     const groupB = document.querySelector(".group");
     groupB.addEventListener("click", async () => {
     const tabIds = selected.map(({ id }) => id);
-    console.log(tabIds);
     const group = await chrome.tabs.group({ tabIds });
 
     window.location.reload();
@@ -87,7 +87,6 @@ for (const tab of tabs) {
     const ungroupB = document.querySelector(".ungroup");
     ungroupB.addEventListener("click", async () => {
         const tabIds = selected.map(({ id }) => id);
-        console.log(tabIds);
         const group = await chrome.tabs.ungroup(tabIds);
 
     window.location.reload();
