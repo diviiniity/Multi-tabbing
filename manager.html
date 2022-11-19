@@ -11,7 +11,7 @@
             <li>
                 <div class="tab">
                     <div class="hide">
-                        <button type='button' class="find" >Find</button>
+                        <button type='button' class="store" >Store</button>
                         <button type='button' class="deleten" >Delete</button>
                     </div>
                     <a>
@@ -22,8 +22,16 @@
                 </div>
             </li>
         </template>
+        
         <button class="group">Group selected tabs</button>
         <button class="ungroup">Ungroup selected tabs</button>
+
+        <!-- search bar and button for FIND -->
+        <div>
+            <input type="searchBar" placeholder="Keyword" id="findInput">
+            <button type="button" onclick="findSelected();">Find</button>
+        </div>
+
         <p id="console"></p>
         <ul></ul>
 
