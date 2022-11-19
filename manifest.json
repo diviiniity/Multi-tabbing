@@ -1,0 +1,14 @@
+{
+    "manifest_version": 3,
+    "name": "silly beans - CodeJam12",
+    "version": "1.0",
+    "icons": {
+    },
+    "action": {
+      "default_popup": ""
+    },
+    "permissions": [
+      "tabGroups",
+      "tabs"
+    ]
+  }
