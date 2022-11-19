@@ -71,3 +71,13 @@ body {
     margin: 0;
   }
   
+
+  .hide {
+    display: none;
+  }
+      
+    .tab:hover > .hide {
+    display: block;
+    float: right;
+    margin-top: 0;
+  }
