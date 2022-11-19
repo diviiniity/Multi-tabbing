@@ -5,7 +5,7 @@
     "icons": {
     },
     "action": {
-      "default_popup": ""
+      "default_popup": "manager.html"
     },
     "permissions": [
       "tabGroups",
