@@ -83,11 +83,25 @@ for (const tab of tabs) {
     window.location.reload();
     });
 
+
     /////// delete group
     const ungroupB = document.querySelector(".ungroup");
     ungroupB.addEventListener("click", async () => {
         const tabIds = selected.map(({ id }) => id);
         const group = await chrome.tabs.ungroup(tabIds);
+
+    // /////// find keyword in selected tabs
+    // var jobValue = document.getElementById('find').value;
+    // findButton.addEventListener("click", async () => {
+    //     const tabIds = selected.map(({ id }) => id);
+    //     // const group = await chrome.tabs.group({ tabIds });
+
+    //     for (const tab of tabs) {
+    //         const index = selected.indexOf(tab);
+    //         selected[index].classList.add('grouped');
+    //     }
+    // });
+
 
     window.location.reload();
     });
