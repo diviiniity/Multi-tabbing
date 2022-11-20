@@ -53,15 +53,22 @@ body {
     padding: 0.25rem;
     box-sizing: border-box;
   }
+
+  .navbar h2 {
+    text-align: center;
+    color: wheat;
+    font-size: 20px;
+    font-weight: bold;
+  }
   
   ul {
     list-style-type: none;
     padding-inline-start: 0;
-    margin: 4.5rem 0;
+    margin: 7.5rem 0;
   }
   
   li {
-    padding: 0.25rem;
+    padding: 0rem;
   }
   li:nth-child(odd) {
     background: #80808030;
@@ -100,8 +107,9 @@ body {
     background: #C1E1C1;
   }
   li.grouped {
-    border-style: ridge;
-    border-width: 5px;
+    border-style: solid;
+    border-width: 1px;
+    padding: 5px;
   }
 
   .info {
@@ -120,7 +128,7 @@ body {
     display: none;
   }
       
-    .tab:hover > .hide {
+  .tab:hover > .hide {
     display: block;
     float: right;
     margin-top: 0;
