@@ -126,6 +126,13 @@ li.orange {
   background: orange;
 }
 
+li.searchFound {
+  /* background: yellow; */
+  border-style: solid;
+  border-width: 3px;
+  border-color: yellow;
+}
+
 li.selected {
   background: #C1E1C1;
 }

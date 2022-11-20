@@ -106,11 +106,21 @@ for (const tab of tabs) {
     });
 
 
-    /////// find keyword in selected tabs
+    /////// search tab with keyword
     const findButton = document.querySelector(".search");
     findButton.addEventListener("click", async () => {
         var searchInput = document.getElementById("searchBar").value;
-        window.find(searchInput);
+
+        const popups = document.getElementsByTagName('li');
+        for (const popup of popups) {
+            if(searchInput === "") popup.classList.remove("searchFound");
+            else if(popup.innerText.indexOf(searchInput) > -1) {
+                if(!popup.classList.contains("searchFound")){
+                    popup.classList.add("searchFound");
+                }
+                
+            }
+        }
     });
 
 
