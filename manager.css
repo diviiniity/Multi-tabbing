@@ -3,6 +3,15 @@ body {
     width: 20rem;
   }
 
+  .delete {
+    background: none;
+    border: none;
+    color: black; /* White text */
+    padding: 4px 6px; /* Some padding */
+    font-size: 16px; /* Set a font size */
+    cursor: pointer;
+  }
+
   .navbar {
     overflow: hidden;
     background-color: #333;

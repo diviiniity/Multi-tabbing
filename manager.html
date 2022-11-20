@@ -5,18 +5,17 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link rel="stylesheet" href="./manager.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     </head>
     <body>
         <template id="popup">
             <li>
                 <div class="tab">
                     <div class="hide">
-                        <button type='button' class="store" >Store</button>
-                        <button type='button' class="deleten" >Delete</button>
+                        <button type='button' id="delete" class="delete" >x</button>
                     </div>
                     <a class="info">
                         <h3 class="title"> Tab Title</h3>
-                        <p class="accessedDate"><i>Tab Date</i></p>
                         <p class="url">Tab URL</p>
                     </a>
                 </div>

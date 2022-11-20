@@ -61,6 +61,11 @@ for (const tab of tabs) {
         }
     })
 
+    element.querySelector('button').addEventListener('click', async () => {
+        chrome.tabs.remove(tab.id);
+        window.location.reload();
+    })
+
     /////// changing tab focus
     element.querySelector("a").addEventListener("dblclick", async () => {
         await chrome.tabs.update(tab.id, { active: true });
@@ -90,6 +95,9 @@ for (const tab of tabs) {
         const tabIds = selected.map(({ id }) => id);
         const group = await chrome.tabs.ungroup(tabIds);
 
+        window.location.reload();
+    });
+  
     // /////// find keyword in selected tabs
     // var jobValue = document.getElementById('find').value;
     // findButton.addEventListener("click", async () => {
@@ -103,11 +111,8 @@ for (const tab of tabs) {
     // });
 
 
-    window.location.reload();
-    });
-  
-elements.push(element);
-}
+    elements.push(element);
+};
 
 reloadList(document.querySelector("ul"));
 
