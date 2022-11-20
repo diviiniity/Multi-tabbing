@@ -42,11 +42,22 @@ body {
     background: #ddd;
     color: black;
   }
+
+  .navbar button.find {
+    width:20%;
+  }
+
+  .navbar input {
+    width: 74%;
+    
+    padding: 0.25rem;
+    box-sizing: border-box;
+  }
   
   ul {
     list-style-type: none;
     padding-inline-start: 0;
-    margin: 2.5rem 0;
+    margin: 4.5rem 0;
   }
   
   li {
@@ -93,13 +104,17 @@ body {
     border-width: 5px;
   }
 
-
-
-  h3,
-  p {
-    margin: 0;
+  .info {
+    overflow: hidden;
+    white-space: nowrap;
   }
-  
+
+  h3, p {
+    margin: 0;
+    display: block;
+    overflow: hidden;
+  }
+
 
   .hide {
     display: none;
