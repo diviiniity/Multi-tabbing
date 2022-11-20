@@ -1,43 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link rel="stylesheet" href="./manager.css" />
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    </head>
-    <body>
-        <template id="popup">
-            <li>
-                <div class="tab">
-                    <div class="hide">
-                        <button type='button' id="delete" class="delete" >x</button>
-                    </div>
-                    <a class="info">
-                        <h3 class="title"> Tab Title</h3>
-                        <p class="url">Tab URL</p>
-                    </a>
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./manager.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+    <template id="popup">
+        <li>
+            <div class="tab">
+                <div class="hide">
+                    <button type='button' id="delete" class="delete">x</button>
                 </div>
-            </li>
-        </template>
-        
-        <div class="navbar">
-            <h2>Multi-tabbing</h2>
-            <input type="searchBar" placeholder="Keyword" id="findInput">
-            <button type="button" class="find" onclick="findSelected();">Find</button>
-           
-            <!-- search bar and button for FIND -->
-            
-            <button class="group">Group selected tabs</button>
-            <button class="ungroup">Ungroup selected tabs</button>
-            
+                <a class="info">
+                    <h3 class="title"> Tab Title</h3>
+                    <p class="url">Tab URL</p>
+                </a>
             </div>
-        </div>
+        </li>
+    </template>
 
-        <p id="console"></p>
-        <ul></ul>
+    <div class="navbar">
+        <h2>Multi-tabbing</h2>
 
-        <script src="./manager.js" type="module"></script>
-    </body>
+        <!-- search bar and button for FIND -->
+        <input type="searchBar" placeholder="Keyword" id="searchBar">
+        <button type="button" class="search">Search</button>
+
+        <button class="group">Group selected tabs</button>
+        <button class="ungroup">Ungroup selected tabs</button>
+
+    </div>
+    </div>
+
+    <p id="console"></p>
+    <ul></ul>
+
+    <script src="./manager.js" type="module"></script>
+</body>
+
 </html>

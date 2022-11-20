@@ -22,41 +22,42 @@ for (const tab of tabs) {
     //selecting pages
     element.querySelector("a").addEventListener("click", async () => {
 
-    if (selected.includes(tab)) {
-        if (tab.groupId > -1) {
-            const group = tab.groupId;
-            for(const i of tabs) {
-                if (i.groupId == group){
-                    const index = selected.indexOf(i);
-                    selected.splice(index,1);
-                    const tabIndex = tabs.indexOf(i);
-                    elements[tabIndex].classList.remove("selected");
+        if (selected.includes(tab)) {
+            if (tab.groupId > -1) {
+                const group = tab.groupId;
+                for (const i of tabs) {
+                    if (i.groupId == group) {
+                        const index = selected.indexOf(i);
+                        selected.splice(index, 1);
+                        const tabIndex = tabs.indexOf(i);
+                        elements[tabIndex].classList.remove("selected");
+                    }
                 }
             }
-        }
-        else {
-            const index = selected.indexOf(tab);
-            if (index > -1){
-                selected.splice(index,1);
-                element.classList.remove("selected");
-        }
-        
-      }
-    }
-    else {
-        if (tab.groupId > -1) {
-            const group = tab.groupId;
-            for(const i of tabs) {
-                if (i.groupId == group){
-                    selected.push(i);
-                    const tabIndex = tabs.indexOf(i);
-                    elements[tabIndex].classList.add("selected");
-                }}
+            else {
+                const index = selected.indexOf(tab);
+                if (index > -1) {
+                    selected.splice(index, 1);
+                    element.classList.remove("selected");
+                }
+
             }
+        }
         else {
+            if (tab.groupId > -1) {
+                const group = tab.groupId;
+                for (const i of tabs) {
+                    if (i.groupId == group) {
+                        selected.push(i);
+                        const tabIndex = tabs.indexOf(i);
+                        elements[tabIndex].classList.add("selected");
+                    }
+                }
+            }
+            else {
                 selected.push(tab);
                 element.classList.add("selected");
-        }
+            }
 
         }
     })
@@ -82,10 +83,10 @@ for (const tab of tabs) {
     /////// create group
     const groupB = document.querySelector(".group");
     groupB.addEventListener("click", async () => {
-    const tabIds = selected.map(({ id }) => id);
-    const group = await chrome.tabs.group({ tabIds });
+        const tabIds = selected.map(({ id }) => id);
+        const group = await chrome.tabs.group({ tabIds });
 
-    window.location.reload();
+        window.location.reload();
     });
 
 
@@ -97,18 +98,14 @@ for (const tab of tabs) {
 
         window.location.reload();
     });
-  
-    // /////// find keyword in selected tabs
-    // var jobValue = document.getElementById('find').value;
-    // findButton.addEventListener("click", async () => {
-    //     const tabIds = selected.map(({ id }) => id);
-    //     // const group = await chrome.tabs.group({ tabIds });
 
-    //     for (const tab of tabs) {
-    //         const index = selected.indexOf(tab);
-    //         selected[index].classList.add('grouped');
-    //     }
-    // });
+
+    /////// find keyword in selected tabs
+    const findButton = document.querySelector(".search");
+    findButton.addEventListener("click", async () => {
+        var searchInput = document.getElementById("searchBar").value;
+        window.find(searchInput);
+    });
 
 
     elements.push(element);
@@ -119,7 +116,7 @@ reloadList(document.querySelector("ul"));
 
 function reloadList(element) {
     while (element.firstChild) {
-      element.removeChild(element.firstChild);
+        element.removeChild(element.firstChild);
     }
     element.append(...elements);
-  }
+}
