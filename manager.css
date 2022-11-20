@@ -14,6 +14,11 @@ body {
   cursor: pointer;
 }
 
+.duplicate {
+  color: wheat;
+  padding: .5rem;
+}
+
 .icon {
   display: inline-block;
   padding-right: 4rem;
@@ -70,7 +75,7 @@ body {
 ul {
   list-style-type: none;
   padding-inline-start: 0;
-  margin: 8.7rem 0;
+  margin: 9.5rem 0;
 }
 
 li {

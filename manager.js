@@ -1,7 +1,11 @@
+import { Finder } from "./finder.js";
+
+
 const tabs = await chrome.tabs.query({});
 const selected = [];
 const groups = await chrome.tabGroups.query({});
-
+const names=[];
+const myfinder= new Finder();
 tabs.sort((a, b) => a.index - b.index);
 
 const template = document.getElementById("popup");
@@ -10,6 +14,8 @@ for (const tab of tabs) {
     const element = template.content.firstElementChild.cloneNode(true);
     const title = tab.title;
     const pathname = new URL(tab.url);
+
+    names.push(tab.url);
 
     element.querySelector(".title").textContent = title;
     element.querySelector(".url").textContent = pathname;
@@ -109,6 +115,18 @@ for (const tab of tabs) {
 
 
     elements.push(element);
+
+    
+    const b=myfinder.checkIfDuplicateExists(names);
+
+    if(b){ 
+        const dupl=myfinder.findDupl(names);    
+        document.getElementById("copy").innerHTML="There are repeated urls, use the search function to find them";
+    }
+
+
+
+
 };
 
 reloadList(document.querySelector("ul"));
